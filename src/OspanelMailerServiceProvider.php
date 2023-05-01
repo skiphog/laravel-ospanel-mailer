@@ -12,8 +12,8 @@ class OspanelMailerServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //config(['mail.mailers.ospanel' => ['transport' => 'ospanel']]);
         $this->mergeConfigFrom(__DIR__ . '/config/ospanel-mailer.php', 'mail.mailers');
+
         Mail::extend('ospanel', static fn() => new OspanelMailerTransport());
     }
 }
